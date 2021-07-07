@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="thescore" id="Project_21dd" database="MySql" >
+	<schema name="thescore" >
+		<table name="commanders" prior="commander" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<index name="pk_commanders_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="games" prior="tbl" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="player_1" type="int" jt="4" />
+			<column name="commander_1" type="int" jt="4" />
+			<column name="place_1" type="int" jt="4" />
+			<column name="tags_1" type="text" jt="-1" />
+			<column name="player_2" type="int" jt="4" />
+			<column name="commander_2" type="int" jt="4" />
+			<column name="place_2" prior="placement_2" type="int" jt="4" />
+			<column name="tags_2" type="text" jt="-1" />
+			<column name="player_3" type="int" jt="4" />
+			<column name="commander_3" type="int" jt="4" />
+			<column name="place_3" type="int" jt="4" />
+			<column name="tags_3" type="text" jt="-1" />
+			<column name="player_4" type="int" jt="4" />
+			<column name="commander_4" type="int" jt="4" />
+			<column name="place_4" type="int" jt="4" />
+			<column name="tags_4" type="text" jt="-1" />
+			<column name="player_5" type="int" jt="4" />
+			<column name="commander_5" type="int" jt="4" />
+			<column name="place_5" type="int" jt="4" />
+			<column name="tags_5" type="text" jt="-1" />
+			<column name="player_6" type="int" jt="4" />
+			<column name="commander_6" type="int" jt="4" />
+			<column name="place_6" type="int" jt="4" />
+			<column name="tags_6" type="text" jt="-1" />
+			<index name="pk_games_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_games_players" to_schema="thescore" to_table="players" >
+				<fk_column name="player_1" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_1" pk="id" />
+			</fk>
+			<fk name="fk_games_players_0" to_schema="thescore" to_table="players" >
+				<fk_column name="player_2" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders_0" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_2" pk="id" />
+			</fk>
+			<fk name="fk_games_players_1" to_schema="thescore" to_table="players" >
+				<fk_column name="player_3" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders_1" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_3" pk="id" />
+			</fk>
+			<fk name="fk_games_players_2" to_schema="thescore" to_table="players" >
+				<fk_column name="player_4" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders_2" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_4" pk="id" />
+			</fk>
+			<fk name="fk_games_players_3" to_schema="thescore" to_table="players" >
+				<fk_column name="player_5" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders_3" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_5" pk="id" />
+			</fk>
+			<fk name="fk_games_players_4" to_schema="thescore" to_table="players" >
+				<fk_column name="player_6" pk="id" />
+			</fk>
+			<fk name="fk_games_commanders_4" to_schema="thescore" to_table="commanders" >
+				<fk_column name="commander_6" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="players" prior="tbl" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" />
+			<column name="portrait_url" type="text" jt="-1" />
+			<index name="pk_players_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="playgroup_player" prior="playgroup_players" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="player_id" type="int" jt="4" />
+			<column name="playgroup_id" type="int" jt="4" />
+			<index name="pk_playgroup_players_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_playgroup_player_players" to_schema="thescore" to_table="players" >
+				<fk_column name="player_id" pk="id" />
+			</fk>
+			<fk name="fk_playgroup_player_playgroups" to_schema="thescore" to_table="playgroups" >
+				<fk_column name="playgroup_id" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="playgroups" prior="tbl" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" />
+			<column name="logo_url" type="text" jt="-1" />
+			<index name="pk_playgroups_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_2383" show_relation="columns" >
+		<entity schema="thescore" name="commanders" color="C1D8EE" x="48" y="272" />
+		<entity schema="thescore" name="games" color="C1D8EE" x="352" y="224" />
+		<entity schema="thescore" name="players" color="C1D8EE" x="656" y="224" />
+		<entity schema="thescore" name="playgroup_player" color="C1D8EE" x="624" y="48" />
+		<entity schema="thescore" name="playgroups" color="C1D8EE" x="416" y="48" />
+		<script name="scoreschema.sql" id="Editor_118c" language="SQL" file="file:/home/alexander/projects/thescore/design/scoreschema.sql" />
+	</layout>
+</project>

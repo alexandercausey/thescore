@@ -1,0 +1,28 @@
+{
+  "name": "thescore",
+  "version": "1.0.0",
+  "description": "The Score will be an interactive scoreboard database to track game statistics for Magic The Gathering playgroups. Users will be able to select the names of players for a given game, select a commander for each player, select what place each player finished in, and add notes about the game. These statistics will be saved to a database. Users will then be able to see visualizations and statistics for individual players and commanders, filtered by game size (i.e. number of players).",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandercausey/thescore.git"
+  },
+  "keywords": [
+    "mtg"
+  ],
+  "author": "alexander causey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandercausey/thescore/issues"
+  },
+  "homepage": "https://github.com/alexandercausey/thescore#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^16.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

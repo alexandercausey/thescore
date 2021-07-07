@@ -1,24 +1,25 @@
+CREATE DATABASE thescore;
 CREATE SCHEMA thescore;
 
-CREATE TABLE thescore.commanders ( 
-	id                   int  NOT NULL    PRIMARY KEY,
-	name                 varchar(50)      
- ) engine=InnoDB;
+CREATE TABLE thescore.commanders (
+	id                   SERIAL  NOT NULL    PRIMARY KEY,
+	name                 varchar(50)
+ );
 
-CREATE TABLE thescore.players ( 
-	id                   int  NOT NULL    PRIMARY KEY,
+CREATE TABLE thescore.players (
+	id                   SERIAL  NOT NULL    PRIMARY KEY,
 	name                 varchar(100)      ,
-	portrait_url         text      
- ) engine=InnoDB;
+	portrait_url         text
+ );
 
-CREATE TABLE thescore.playgroups ( 
-	id                   int  NOT NULL    PRIMARY KEY,
+CREATE TABLE thescore.playgroups (
+	id                   SERIAL  NOT NULL    PRIMARY KEY,
 	name                 varchar(100)      ,
-	logo_url             text      
- ) engine=InnoDB;
+	logo_url             text
+ );
 
-CREATE TABLE thescore.games ( 
-	id                   int  NOT NULL    PRIMARY KEY,
+CREATE TABLE thescore.games (
+	id                   SERIAL  NOT NULL    PRIMARY KEY,
 	player_1             int      ,
 	commander_1          int      ,
 	place_1              int      ,
@@ -42,14 +43,14 @@ CREATE TABLE thescore.games (
 	player_6             int      ,
 	commander_6          int      ,
 	place_6              int      ,
-	tags_6               text      
- ) engine=InnoDB;
+	tags_6               text
+ );
 
-CREATE TABLE thescore.playgroup_player ( 
-	id                   int  NOT NULL    PRIMARY KEY,
+CREATE TABLE thescore.playgroup_player (
+	id                   SERIAL  NOT NULL    PRIMARY KEY,
 	player_id            int      ,
-	playgroup_id         int      
- ) engine=InnoDB;
+	playgroup_id         int
+ );
 
 ALTER TABLE thescore.games ADD CONSTRAINT fk_games_players FOREIGN KEY ( player_1 ) REFERENCES thescore.players( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
