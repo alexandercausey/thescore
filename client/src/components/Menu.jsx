@@ -11,3 +11,5 @@ function Menu({changePage}) {
     </div>
   )
 }
+
+export default Menu;

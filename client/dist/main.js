@@ -86,6 +86,16 @@ eval("\n\nvar possibleNames = [\n\t'BigInt64Array',\n\t'BigUint64Array',\n\t'Flo
 
 /***/ }),
 
+/***/ "./server/index.js":
+/*!*************************!*\
+  !*** ./server/index.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("var __dirname = \"/\";\n/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ \"./node_modules/console-browserify/index.js\");\nvar express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\n\nvar app = express();\nvar port = 3000;\n\nvar path = __webpack_require__(/*! path */ \"?0415\");\n\napp.use(express[\"static\"](path.join(__dirname, \"../client/dist\")));\napp.get('/', function (req, res) {\n  res.send('Hello World!');\n});\napp.listen(port, function () {\n  console.log(\"Listening at http://localhost:\".concat(port));\n});\n\n//# sourceURL=webpack://thescore/./server/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/base64-js/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/base64-js/index.js ***!
@@ -1570,16 +1580,6 @@ eval("/*!\n * vary\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT
 
 "use strict";
 eval("\n\nvar forEach = __webpack_require__(/*! foreach */ \"./node_modules/foreach/index.js\");\nvar availableTypedArrays = __webpack_require__(/*! available-typed-arrays */ \"./node_modules/available-typed-arrays/index.js\");\nvar callBound = __webpack_require__(/*! call-bind/callBound */ \"./node_modules/call-bind/callBound.js\");\n\nvar $toString = callBound('Object.prototype.toString');\nvar hasSymbols = __webpack_require__(/*! has-symbols */ \"./node_modules/has-symbols/index.js\")();\nvar hasToStringTag = hasSymbols && typeof Symbol.toStringTag === 'symbol';\n\nvar typedArrays = availableTypedArrays();\n\nvar $slice = callBound('String.prototype.slice');\nvar toStrTags = {};\nvar gOPD = __webpack_require__(/*! es-abstract/helpers/getOwnPropertyDescriptor */ \"./node_modules/es-abstract/helpers/getOwnPropertyDescriptor.js\");\nvar getPrototypeOf = Object.getPrototypeOf; // require('getprototypeof');\nif (hasToStringTag && gOPD && getPrototypeOf) {\n\tforEach(typedArrays, function (typedArray) {\n\t\tif (typeof __webpack_require__.g[typedArray] === 'function') {\n\t\t\tvar arr = new __webpack_require__.g[typedArray]();\n\t\t\tif (!(Symbol.toStringTag in arr)) {\n\t\t\t\tthrow new EvalError('this engine has support for Symbol.toStringTag, but ' + typedArray + ' does not have the property! Please report this.');\n\t\t\t}\n\t\t\tvar proto = getPrototypeOf(arr);\n\t\t\tvar descriptor = gOPD(proto, Symbol.toStringTag);\n\t\t\tif (!descriptor) {\n\t\t\t\tvar superProto = getPrototypeOf(proto);\n\t\t\t\tdescriptor = gOPD(superProto, Symbol.toStringTag);\n\t\t\t}\n\t\t\ttoStrTags[typedArray] = descriptor.get;\n\t\t}\n\t});\n}\n\nvar tryTypedArrays = function tryAllTypedArrays(value) {\n\tvar foundName = false;\n\tforEach(toStrTags, function (getter, typedArray) {\n\t\tif (!foundName) {\n\t\t\ttry {\n\t\t\t\tvar name = getter.call(value);\n\t\t\t\tif (name === typedArray) {\n\t\t\t\t\tfoundName = name;\n\t\t\t\t}\n\t\t\t} catch (e) {}\n\t\t}\n\t});\n\treturn foundName;\n};\n\nvar isTypedArray = __webpack_require__(/*! is-typed-array */ \"./node_modules/is-typed-array/index.js\");\n\nmodule.exports = function whichTypedArray(value) {\n\tif (!isTypedArray(value)) { return false; }\n\tif (!hasToStringTag) { return $slice($toString(value), 8, -1); }\n\treturn tryTypedArrays(value);\n};\n\n\n//# sourceURL=webpack://thescore/./node_modules/which-typed-array/index.js?");
-
-/***/ }),
-
-/***/ "./server/index.js":
-/*!*************************!*\
-  !*** ./server/index.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("var __dirname = \"/\";\n/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ \"./node_modules/console-browserify/index.js\");\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst app = express();\nconst port = 3000;\nconst path = __webpack_require__(/*! path */ \"?0415\");\n\napp.use(express.static(path.join(__dirname, \"../dist\")));\n\napp.get('/', (req, res) => {\n  res.send('Hello World!')\n});\n\napp.listen(port, () => {\n  console.log(`Listening at http://localhost:${port}`)\n});\n\n//# sourceURL=webpack://thescore/./server/index.js?");
 
 /***/ }),
 

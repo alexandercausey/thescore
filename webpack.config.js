@@ -2,13 +2,13 @@ const path = require('path');
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
-  entry: './server/index.js',
+  entry: path.resolve(__dirname, './server/index.js'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './client/dist'),
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['*', '.js'],
     modules: [path.join(__dirname, 'node_modules')],
     fallback: {
       "fs": false,
@@ -25,5 +25,14 @@ module.exports = {
   },
   plugins: [
     new NodePolyfillPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
+  },
 };

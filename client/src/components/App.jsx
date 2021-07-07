@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Menu from 'Menu.jsx';
 
 class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      playgroup: '',
+      playgroups: [],
+      currentPlaygroup: null;
       players: [],
       page: 'playgroup',
       menuSelected: false,
@@ -14,10 +16,14 @@ class App extends React.Component {
   }
   handlePageChange(e) {
     e.preventDefault();
-    const newState = this.state.page;
+    const newState = this.state;
     newState.page = e.target.value;
     newState.menuSelected = false;
     this.setState(newState);
+  }
+  handlePlayersChange(name, portraitUrl, index) {
+    const newState = this.state;
+
   }
   render() {
     return (
@@ -28,7 +34,7 @@ class App extends React.Component {
         <Menu changePage={this.handlePageChange} />
         }
         {this.state.page === 'playgroup' &&
-        <Playgroup />
+        <Playgroup players={this.state.players} />
         }
         {this.state.page === 'player' &&
         <Player />
