@@ -1,6 +1,6 @@
 # The Score
 
-The Score will be an interactive scoreboard database to track game statistics for Magic The Gathering playgroups. Users will be able to select the names of players for a given game, select a commander for each player, select what place each player finished in, and add notes about the game. These statistics will be saved to a database. Users will then be able to see visualizations and statistics for individual players and commanders, filtered by game size (i.e. number of players).
+The Score is an interactive scoreboard database to track game statistics for Magic The Gathering playgroups. Users are able to select the names of players for a given game, select a commander for each player, select what place each player finished in, and add notes about the game. These statistics will be saved to a database. Users are able to see visualizations and statistics for individual players and commanders, filtered by game size (i.e. number of players).
 
 
 ## User Stories

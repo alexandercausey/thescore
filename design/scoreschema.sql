@@ -1,4 +1,3 @@
-CREATE DATABASE thescore;
 CREATE SCHEMA thescore;
 
 CREATE TABLE thescore.commanders (
