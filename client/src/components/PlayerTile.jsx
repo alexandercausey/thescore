@@ -24,3 +24,5 @@ function PlayerTile({ players, commanders, places }) {
     </div>
   )
 }
+
+export default PlayerTile;

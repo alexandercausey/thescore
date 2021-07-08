@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaygroupTile from './PlaygroupTile.jsx';
 
 function Playgroup({ playgroups, handlePlaygroupSelect }) {
   render() {
@@ -9,3 +10,5 @@ function Playgroup({ playgroups, handlePlaygroupSelect }) {
     </div>
   }
 }
+
+export default Playgroup;

@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Menu from 'Menu.jsx';
+import Game from 'Game.jsx';
+import Player from 'Player.jsx';
+import Playgroup from 'Playgroup.jsx';
+import Stats from 'Stats.jsx';
 
 <iframe src="https://drive.google.com/file/d/1ptnjelCZqKcQwuBFRRr7jji5F2w7Yu_m/preview" width="640" height="480" allow="autoplay"></iframe>
 

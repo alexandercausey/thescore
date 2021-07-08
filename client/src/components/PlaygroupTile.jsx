@@ -11,3 +11,5 @@ function PlaygroupTile({ name, logoUrl, players }) {
     </div>
   }
 }
+
+export default PlaygroupTile;

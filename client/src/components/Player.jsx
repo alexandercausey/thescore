@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerSelectTile from './PlayerSelectTile.jsx';
 
 function Player({ players }) {
   return (
@@ -12,3 +13,5 @@ function Player({ players }) {
     </div>
   )
 }
+
+export default Player;

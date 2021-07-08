@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerTile from './PlayerTile';
 
 function Game({ players, commanders }) {
   const [totalPlayers, setTotalPlayers] = useState(4);
@@ -25,3 +26,5 @@ function Game({ players, commanders }) {
     </div>
   )
 }
+
+export default Game;
