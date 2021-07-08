@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PlaygroupTile({ playgroupName, logoUrl, players }) {
+function PlaygroupTile({ name, logoUrl, players }) {
   render() {
     <div>
       <img className="pgtile" src={logoUrl} alt="Playgroup Logo"></img>
