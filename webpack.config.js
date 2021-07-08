@@ -1,5 +1,4 @@
 const path = require('path');
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, './client/src/index.jsx'),
@@ -15,7 +14,7 @@ module.exports = {
         use: "babel-loader"
       },
       {
-        test: /\.css?/,
+        test: /\.css|.scss?/,
         exclude: /node_modules/,
         use: "css-loader"
       }

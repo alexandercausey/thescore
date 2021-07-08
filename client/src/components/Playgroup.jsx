@@ -3,11 +3,14 @@ import PlaygroupTile from './PlaygroupTile.jsx';
 
 function Playgroup({ playgroups, handlePlaygroupSelect }) {
   return (
-    <div>
+    <div className="playgroup">
       {playgroups.map((playgroup, index) => {
-        <div onClick={handlePlaygroupSelect}>
-        <PlaygroupTile playgroup={playgroup} />
-        </div>
+        console.log(playgroup);
+          return(
+            // <div onClick={handlePlaygroupSelect(index)} key={playgroup.name + index}>
+              <PlaygroupTile playgroup={playgroup} key={playgroup.name} />
+            // </div>
+          )
       })}
     </div>
   )

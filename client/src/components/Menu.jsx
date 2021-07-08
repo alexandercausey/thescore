@@ -3,7 +3,7 @@ import React from 'react';
 function Menu({changePage}) {
   const handleClick = (e) => {
     e.preventDefault();
-    changePage(e);
+    changePage(e.target.value);
   }
   return (
     <div>
