@@ -1,0 +1,10 @@
+.playgroup {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+.tile {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}

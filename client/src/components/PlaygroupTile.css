@@ -1,0 +1,26 @@
+.pgtile {
+  display: grid;
+  grid-template-rows: 50% 25% 25%;
+  grid-template-columns: 25% 25% 25% 25%;
+  height: 40em;
+  width: 40em;
+}
+
+.pgtileimg {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  /* align-self: center; */
+  /* justify-content: center; */
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.pgportrait {
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}

@@ -19,7 +19,7 @@ function Game({ players, commanders }) {
   return (
     <div>
       {places.map((place) => {
-        <PlayerTile players={players} commanders={commanders} places={places} />
+        return <PlayerTile players={players} commanders={commanders} places={places} />
       })}
       <button className="addPlayer" onClick={addPlayer}>Add Player</button>
       <button className="removePlayer" onClick={removePlayer}>Remove Player</button>
