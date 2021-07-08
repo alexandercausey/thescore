@@ -1,19 +1,19 @@
 import React from 'react';
-import PlayerTile from './PlayerTile';
+import PlayerTile from './PlayerTile.jsx';
 
 function Game({ players, commanders }) {
   const [totalPlayers, setTotalPlayers] = useState(4);
   const places = [];
-  getPlaces() {
+  const getPlaces = () => {
     for (let i = 1; i <= totalPlayers; i++) {
       places.push(i);
     }
   };
   getPlaces();
-  removePlayer() {
+  const removePlayer = () => {
     setTotalPlayers(totalPlayers - 1);
   };
-  addPlayer() {
+  const addPlayer = () => {
     setTotalPlayers(totalPlayers + 1);
   };
   return (

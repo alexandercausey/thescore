@@ -1,0 +1,15 @@
+.banner {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+  height: 10em;
+  width:100%
+}
+
+.header {
+  grid-column: 1;
+}
+
+.menubutton {
+  grid-column: 2;
+}

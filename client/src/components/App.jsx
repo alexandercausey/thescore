@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from 'Menu.jsx';
-import Game from 'Game.jsx';
-import Player from 'Player.jsx';
-import Playgroup from 'Playgroup.jsx';
-import Stats from 'Stats.jsx';
+import Menu from './Menu.jsx';
+import Game from './Game.jsx';
+import Player from './Player.jsx';
+import Playgroup from './Playgroup.jsx';
+import Stats from './Stats.jsx';
+import styles from './stylesApp.css';
 
 <iframe src="https://drive.google.com/file/d/1ptnjelCZqKcQwuBFRRr7jji5F2w7Yu_m/preview" width="640" height="480" allow="autoplay"></iframe>
 
@@ -323,7 +324,7 @@ const data = {
     "Kokusho, the Evening Star (IMA)",
     "Kolaghan, the Storm's Fury (C17)",
     "Konda, Lord of Eiganjo (CHK)",
-    "Kongming, "Sleeping Dragon" (C13)",
+    "Kongming, Sleeping Dragon (C13)",
     "Kopala, Warden of Waves (XLN)",
     "Kothophed, Soul Hoarder (ORI)",
     "Kozilek, Butcher of Truth (MM2)",
@@ -723,11 +724,11 @@ class App extends React.Component {
     super (props);
     this.state = {
       playgroups: data.playgroups,
-      currentPlaygroup: null;
-      players: [],
+      currentPlaygroup: 0,
+      players: data.playgroups[0].players,
       page: 'playgroup',
       menuSelected: false,
-      commanders: data.commanders;
+      commanders: data.commanders
     }
     this.handlePageChange = this.handlePageChange.bind(this);
     this.handlePlaygroupSelect = this.handlePlaygroupSelect.bind(this);
@@ -746,19 +747,21 @@ class App extends React.Component {
   handlePlaygroupSelect(index) {
     const newState = this.state;
     newState.currentPlaygroup = index;
-    newState.players = this.state.playgroups[currentPlaygroup].players;
+    newState.players = this.state.playgroups[this.state.currentPlaygroup].players;
     this.setState(newState);
   }
   render() {
     return (
-      <div>
-        <h1>The Score</h1>
-        <button className="menu"></button>
+      <div className={styles.app}>
+        <div className={styles.banner}>
+          <h1 className={styles.header}>The Score</h1>
+          <button className="menubutton"></button>
+        </div>
         {this.state.menuSelected === true &&
         <Menu changePage={this.handlePageChange} />
         }
         {this.state.page === 'playgroup' &&
-        <Playgroup playgroups={this.state.playgroups} handlePlaygroupSelect={handlePlaygroupSelect} />
+        <Playgroup playgroups={this.state.playgroups} handlePlaygroupSelect={this.handlePlaygroupSelect} />
         }
         {this.state.page === 'player' &&
         <Player players={this.state.players} />

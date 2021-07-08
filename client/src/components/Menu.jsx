@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Menu({changePage}) {
-  handleClick(e) {
+  const handleClick = (e) => {
     e.preventDefault();
     changePage(e);
   }
