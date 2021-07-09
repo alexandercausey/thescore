@@ -6,16 +6,18 @@
   width: 40em;
 }
 
-.pgtileimg {
+.pgtileimgcontainer {
   display: grid;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 5;
-  /* align-self: center; */
-  /* justify-content: center; */
+}
+
+.pgtileimg {
   height: 100%;
-  width: 100%;
+  width: auto;
+  object-fit: cover;
   z-index: 1;
 }
 

@@ -10,6 +10,7 @@ function Game({ players, commanders }) {
     }
   };
   getPlaces();
+  console.log(places)
   const removePlayer = () => {
     setTotalPlayers(totalPlayers - 1);
   };
@@ -19,7 +20,7 @@ function Game({ players, commanders }) {
   return (
     <div>
       {places.map((place) => {
-        return <PlayerTile players={players} commanders={commanders} places={places} />
+        return <PlayerTile players={players} commanders={commanders} totalPlayers={totalPlayers} />
       })}
       <button className="addPlayer" onClick={addPlayer}>Add Player</button>
       <button className="removePlayer" onClick={removePlayer}>Remove Player</button>

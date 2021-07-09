@@ -1,0 +1,77 @@
+.playertile {
+  display: grid;
+  grid-template-columns: 40% 40% 15% 5%;
+  grid-template-rows: 80% 20%;
+  height: 10em;
+  width: 70em;
+  border-style: solid;
+  border-color: black;
+  background-color: cadetblue;
+  margin: 8px;
+}
+
+.portraitcontainer {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-content: center;
+}
+
+.portrait {
+  object-fit: cover;
+  height: 100%;
+  width: auto;
+}
+
+.playerselect {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.commandercontainer {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 2px;
+  justify-content: center;
+}
+
+.commander {
+  object-fit: cover;
+  height: 100%;
+  width: auto;
+}
+
+.commanderselectcontainer {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.commanderselect {
+  height: auto;
+  width: 100%;
+  padding: 2px;
+}
+
+.placementselect {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: white;
+  color: black;
+  margin: 5px;
+  font-family: 'Marck Script', cursive;
+  font-size: xx-large;
+  justify-self: center;
+}
+

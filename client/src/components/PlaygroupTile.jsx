@@ -8,7 +8,9 @@ function PlaygroupTile({ playgroup, index, handlePlaygroupSelect }) {
   }
   return(
     <div className="pgtile" >
-      <img className="pgtileimg" src={playgroup.logoUrl} onClick={handleClick} alt="Playgroup Logo"></img>
+      <div className="pgtileimgcontainer">
+        <img className="pgtileimg" src={playgroup.logoUrl} onClick={handleClick} alt="Playgroup Logo"></img>
+      </div>
       {playgroup.players.map((player, index) => {
         const position = (index) => {
           if (index <= 3) {

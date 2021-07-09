@@ -1,24 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './PlayerTile.css';
 
-function PlayerTile({ players, commanders, places }) {
+function PlayerTile({ players, commanders, totalPlayers }) {
+  const [playerIndex, setPlayerIndex] = useState(0);
+  const [commanderIndex, setCommanderIndex] = useState(0);
+  const places = [];
+  const getPlaces = () => {
+    for (let i = 1; i <= totalPlayers; i++) {
+      if (i === 1) {
+        places.push('1st');
+      }
+      if (i === 2) {
+        places.push('2nd');
+      }
+      if (i === 3) {
+        places.push('3rd');
+      }
+      if (i > 3) {
+        places.push(i + 'th');
+      }
+    }
+  };
+  getPlaces();
+  console.log("tile", places);
+  const handlePlayerSelect = (e) => {
+    setPlayerIndex(e.target.value);
+  }
+  const handleCommanderSelect = (e) => {
+    if (e.target.value < commanders.length && e.target.value > 0){
+      setCommanderIndex(e.target.value);
+    }
+  }
   return (
-    <div>
-      <label for="playerselect">Player:</label>
-      <select id="playerselect">
-        {players.map((player) => {
-          return <option value={player.name} key={player.name}>{player.name}</option>
+    <div className="playertile">
+      <div className="portraitcontainer">
+        <img src={players[playerIndex].portraitUrl} className="portrait"></img>
+      </div>
+      <select className="playerselect" onChange={(e) => handlePlayerSelect(e)}>
+        {players.map((player, index) => {
+          return <option value={index} key={player.name}>{player.name}</option>
         })}
       </select>
-      <label for="commanderselect">Commander:</label>
-      <datalist id="commanderselect">
-        {commanders.map((commander) => {
-          return <option value={commander} key={commander} />
-        })}
-      </datalist>
-      <label for="placementselect">Placed:</label>
-      <select id="placementselect">
+      <div className="commandercontainer">
+        <img src={commanders[commanderIndex].imageUrl} className="commander"></img>
+      </div>
+      <div className="commanderselectcontainer">
+        <input className="commanderselect" list="commanderlist" onChange={(e) => handleCommanderSelect(e)}></input>
+        <datalist id="commanderlist">
+          {commanders.map((commander, index) => {
+            return <option value={index} key={commander.name}>{commander.name}</option>
+          })}
+        </datalist>
+      </div>
+      <select className="placementselect">
         {places.map((place) => {
-          return <option value={place} key={place} />
+          return <option value={place} key={place} >{place}</option>
         })}
       </select>
     </div>
